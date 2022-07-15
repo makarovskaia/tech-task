@@ -1,15 +1,13 @@
 public class FibonacciNumber {
 
-    public static void main(String[] args) {
-       System.out.println(fibonacciRecursive(10));
-    }
-
     /**
      * вычисление n-ого элемента последовательности Фибоначчи
+     *
      * @param n - элемент последовательности Фибоначчи
-      */
+     */
 
     public static int fibonacciRecursive(int n) {
+        checkParameterIsPositive(n);
         if (n == 0) {
             return 0;
         }
@@ -17,6 +15,12 @@ public class FibonacciNumber {
             return 1;
         }
         return fibonacciRecursive(n - 2) + fibonacciRecursive(n - 1);
+    }
+
+    private static void checkParameterIsPositive(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Число n должно быть больше или равно 0");
+        }
     }
 
 }
